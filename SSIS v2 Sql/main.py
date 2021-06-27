@@ -195,6 +195,17 @@ def student_list_p():
         conn.close()
 
     def updates():
+        if name.get() == '':
+            return messagebox.showwarning("Warning!", "PLEASE SELECT A STUDENT")
+        elif idnum.get() == '':
+            return messagebox.showwarning("Warning!", "PLEASE SELECT A STUDENT")
+        elif gender.get() == 'Gender':
+            return messagebox.showwarning("Warning!", "PLEASE SELECT A STUDENT")
+        elif course.get() == 'Course Code':
+            return messagebox.showwarning("Warning!", "PLEASE SELECT A STUDENT")
+        elif yr_lvl == 'Year Level':
+            return messagebox.showwarning("Warning!", "PLEASE SELECT A STUDENT")
+          
         if messagebox.askyesno("Update","Are you sure you want to update this ") == False:
             return
         else:
