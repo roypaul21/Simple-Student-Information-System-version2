@@ -152,17 +152,24 @@ def student_list_p():
         root3.mainloop()
 
     def delete():
-        if messagebox.askyesno("Delete Confirmation", "Do you wanna Delete this Student") == False:
-            return
+        selected_item = tv.focus()
+
+        if selected_item == "":
+            messagebox.showerror("Delete Confirmation Error", "Please Select Record To Be Deleted")
+
         else:
-            messagebox.showinfo("Delete Confirmation", "Successfully Deleted")
-            conn = sqlite3.connect("StudentsList.db")
-            c = conn.cursor()
-            for selected_item in tv.selection():
-                c.execute("DELETE FROM studentlist WHERE idnum=?", (tv.set(selected_item, '#2'),))
-                conn.commit()
-                tv.delete(selected_item)
-            conn.close()
+
+            if messagebox.askyesno("Delete Confirmation", "Do you wanna Delete this Student") == False:
+                return
+            else:
+                messagebox.showinfo("Delete Confirmation", "Successfully Deleted")
+                conn = sqlite3.connect("StudentsList.db")
+                c = conn.cursor()
+                for selected_item in tv.selection():
+                    c.execute("DELETE FROM studentlist WHERE idnum=?", (tv.set(selected_item, '#2'),))
+                    conn.commit()
+                    tv.delete(selected_item)
+                conn.close()
 
     def select():
         conn = sqlite3.connect('StudentsList.db')
