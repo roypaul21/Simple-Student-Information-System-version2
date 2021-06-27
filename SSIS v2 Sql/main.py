@@ -136,6 +136,9 @@ def student_list_p():
             b = Button(root3, text="Return", bg="gray",
                        borderwidth=1, activebackground="#161618", command=back)
             b.place(x=938, y=60)
+          
+            sea_lbl = Label(root3, text="Data Search Found...", font=('helvetica', 18), bg="#161618", fg="white")
+            sea_lbl.place(x=400, y=16)
 
             for i in records:
                 tv.insert('', 'end', value=i)
