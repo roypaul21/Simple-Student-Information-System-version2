@@ -189,23 +189,14 @@ def student_list_p():
         gender.insert(0, values[2])
         course.insert(0, values[3])
         yr_lvl.insert(0, values[4])
-
-
+          
         conn.commit()
         conn.close()
 
     def updates():
-        if name.get() == '':
+        if idnum.get() == '':
             return messagebox.showwarning("Warning!", "PLEASE SELECT A STUDENT")
-        elif idnum.get() == '':
-            return messagebox.showwarning("Warning!", "PLEASE SELECT A STUDENT")
-        elif gender.get() == 'Gender':
-            return messagebox.showwarning("Warning!", "PLEASE SELECT A STUDENT")
-        elif course.get() == 'Course Code':
-            return messagebox.showwarning("Warning!", "PLEASE SELECT A STUDENT")
-        elif yr_lvl == 'Year Level':
-            return messagebox.showwarning("Warning!", "PLEASE SELECT A STUDENT")
-          
+       
         if messagebox.askyesno("Update","Are you sure you want to update this ") == False:
             return
         else:
