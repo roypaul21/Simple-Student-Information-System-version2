@@ -549,6 +549,11 @@ def student_list_p():
     tv = ttk.Treeview(frm, columns=(1,2,3,4,5,6), show="headings", height="15")
     tv.pack()
 
+    vsb = ttk.Scrollbar(root2, orient="vertical", command=tv.yview)
+    vsb.place(x=782 + 190 + 2, y=188, height=300)
+
+    tv.configure(yscrollcommand=vsb.set)
+
     tv.heading(1, text="NAME", anchor=tk.CENTER)
 
     tv.heading(2, text="ID NUMBER", anchor=tk.CENTER)
